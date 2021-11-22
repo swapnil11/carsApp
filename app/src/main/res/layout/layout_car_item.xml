@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.finalplayground.domain.model.Car" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:maxHeight="@dimen/row_height"
+        android:minHeight="@dimen/row_height">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="@dimen/thumbnail_img_width"
+            android:layout_height="@dimen/thumbnail_img_height"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            app:downloadUrl='@{item.image}'
+            android:importantForAccessibility="no"
+            android:layout_marginStart="@dimen/std_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/carName"
+            style="@style/BlackStyle.TitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/std_margin"
+            android:layout_marginTop="@dimen/std_margin"
+            android:layout_marginEnd="@dimen/std_margin"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{item.formattedTitle}"
+            app:layout_constraintBottom_toTopOf="@+id/carPrice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Paramount Film Studio " />
+
+        <TextView
+            android:id="@+id/carPrice"
+            style="@style/BlackStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_tiny_margin"
+            android:layout_marginBottom="@dimen/std_margin"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text='@{"$"+item.price}'
+            app:layout_constraintEnd_toEndOf="@+id/carName"
+            app:layout_constraintStart_toStartOf="@+id/carName"
+            app:layout_constraintTop_toBottomOf="@+id/carName"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Paramount Film Studio Paramount Film Studio Paramount Film Studio Paramount Film Studio Paramount Film Studio Paramount Film Studio Paramount Film Studio Paramount Film Studio Paramount Film Studio Paramount Film Studio Paramount Film Studio Paramount Film Studio " />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
